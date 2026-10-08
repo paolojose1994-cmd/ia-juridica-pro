@@ -1,659 +1,595 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>OREMA | Productos Digitales</title>
-
-    <meta name="description"
-        content="Herramientas jurídicas asistidas por inteligencia artificial para abogados peruanos.">
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fa;
-            color: #172033;
-            line-height: 1.5;
-        }
-
-        /* =========================
-           ENCABEZADO
-        ========================= */
-
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #e2e6eb;
-            padding: 18px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            width: 240px;
-            height: auto;
-            display: block;
-        }
-
-        .header-text {
-            text-align: right;
-        }
-
-        .header-text strong {
-            display: block;
-            color: #12365f;
-            font-size: 15px;
-        }
-
-        .header-text span {
-            color: #697586;
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           PORTADA
-        ========================= */
-
-        .hero {
-            background: linear-gradient(135deg, #0e1c2f, #173d67);
-            color: white;
-            padding: 65px 20px 70px;
-            text-align: center;
-        }
-
-        .hero-container {
-            max-width: 950px;
-            margin: auto;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #dce6f2;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,.10);
-            border: 1px solid rgba(255,255,255,.20);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 13px;
-            margin-bottom: 22px;
-        }
-
-
-        /* =========================
-           BUSCADOR
-        ========================= */
-
-        .search-container {
-            max-width: 760px;
-            margin: -30px auto 55px;
-            position: relative;
-            z-index: 10;
-            padding: 0 20px;
-        }
-
-        .search-box {
-            background: white;
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0,0,0,.12);
-            padding: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-icon {
-            font-size: 21px;
-            padding: 0 12px;
-            color: #607080;
-        }
-
-        #buscador {
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            padding: 15px 8px;
-            color: #172033;
-        }
-
-
-        /* =========================
-           CONTENIDO
-        ========================= */
-
-        main {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px 70px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .section-title h2 {
-            font-size: 30px;
-            color: #12365f;
-            margin-bottom: 8px;
-        }
-
-        .section-title p {
-            color: #687386;
-        }
-
-
-        /* =========================
-           CATEGORÍAS
-        ========================= */
-
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .category {
-            background: white;
-            border: 1px solid #e2e6eb;
-            border-radius: 14px;
-            padding: 30px 24px;
-            text-align: center;
-            cursor: pointer;
-            transition: .25s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,.04);
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 28px rgba(0,0,0,.10);
-            border-color: #1d5d91;
-        }
-
-        .category-icon {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
-
-        .category h3 {
-            color: #12365f;
-            font-size: 19px;
-            margin-bottom: 9px;
-        }
-
-        .category p {
-            color: #687386;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           RESULTADOS DE BÚSQUEDA
-        ========================= */
-
-        #sinResultados {
-            display: none;
-            text-align: center;
-            padding: 35px;
-            color: #687386;
-        }
-
-
-        /* =========================
-           PIE
-        ========================= */
-
-        footer {
-            background: #0e1c2f;
-            color: #b9c5d3;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 13px;
-        }
-
-        footer strong {
-            color: white;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 850px) {
-
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .header-text {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
-        }
-
-
-        @media (max-width: 550px) {
-
-            header {
-                padding: 14px 18px;
-            }
-
-            .logo {
-                width: 200px;
-                margin: auto;
-            }
-
-            .header-container {
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 50px 20px 60px;
-            }
-
-            .hero h1 {
-                font-size: 29px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .categories {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 26px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OREMA | Productos Digitales</title>
+
+<meta name="description" content="Guía de Prompts Jurídicos desarrollada por abogados para el ejercicio profesional en el Perú.">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f9fd;
+    color: #172033;
+    line-height: 1.5;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #dceaf4;
+    padding: 18px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    width: 240px;
+    height: auto;
+    display: block;
+}
+
+.header-text {
+    text-align: right;
+}
+
+.header-text strong {
+    display: block;
+    color: #0878b8;
+    font-size: 15px;
+}
+
+.header-text span {
+    color: #6b7c8c;
+    font-size: 13px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(135deg, #29a9df, #69c9ed);
+    color: white;
+    padding: 70px 20px 75px;
+    text-align: center;
+}
+
+.hero-container {
+    max-width: 950px;
+    margin: auto;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #ffffff;
+    max-width: 720px;
+    margin: auto;
+}
 
+
+/* =========================
+   CONTENIDO
+========================= */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 20px 75px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 31px;
+    color: #0878b8;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: #68798a;
+    font-size: 16px;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.category {
+    min-height: 190px;
+    border-radius: 18px;
+    padding: 35px 20px;
+    text-align: center;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all .25s ease;
+
+    border: 1px solid rgba(0,0,0,.05);
+
+    box-shadow:
+        0 7px 20px rgba(31, 100, 145, .10);
+}
+
+.category:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 30px rgba(31, 100, 145, .18);
+}
+
+
+/* =========================
+   COLORES POR ÁREA
+========================= */
+
+/* CIVIL */
+
+.civil {
+    background: #e3f5ff;
+    border-top: 5px solid #2196d3;
+}
+
+.civil .category-icon {
+    color: #1687c5;
+}
+
+
+/* LABORAL */
+
+.laboral {
+    background: #e7f8f2;
+    border-top: 5px solid #25a77a;
+}
+
+.laboral .category-icon {
+    color: #168c67;
+}
+
+
+/* PENAL */
+
+.penal {
+    background: #fff0f0;
+    border-top: 5px solid #e66a6a;
+}
+
+.penal .category-icon {
+    color: #d94f4f;
+}
+
+
+/* CONSTITUCIONAL */
+
+.constitucional {
+    background: #f0edff;
+    border-top: 5px solid #8068d8;
+}
+
+.constitucional .category-icon {
+    color: #6a52c4;
+}
+
+
+/* ADMINISTRATIVO */
+
+.administrativo {
+    background: #fff7e3;
+    border-top: 5px solid #e4a72f;
+}
+
+.administrativo .category-icon {
+    color: #c58b15;
+}
+
+
+/* FAMILIA */
+
+.familia {
+    background: #fff0f7;
+    border-top: 5px solid #df73a4;
+}
+
+.familia .category-icon {
+    color: #ca5689;
+}
+
+
+/* JURISPRUDENCIA */
+
+.jurisprudencia {
+    background: #e9f1ff;
+    border-top: 5px solid #4d82d8;
+}
+
+.jurisprudencia .category-icon {
+    color: #386dc4;
+}
+
+
+/* =========================
+   ICONOS
+========================= */
+
+.category-icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.category h3 {
+    font-size: 19px;
+    color: #173b55;
+    line-height: 1.3;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0878b8;
+    color: #ffffff;
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 13px;
+}
+
+footer strong {
+    font-size: 15px;
+}
+
+.footer-rights {
+    margin-top: 10px;
+    opacity: .95;
+}
+
+.footer-ruc {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header-text {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 14px 18px;
+    }
+
+    .logo {
+        width: 200px;
+        margin: auto;
+    }
+
+    .header-container {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 55px 20px 60px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .category {
+        min-height: 170px;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         ENCABEZADO
-    ========================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header>
+<header>
 
-        <div class="header-container">
+    <div class="header-container">
 
-            <img
-                src="logo-orema.png"
-                alt="OREMA Firma de Abogados - Productos Digitales"
-                class="logo"
-            >
+        <img
+            src="logo-orema.png"
+            alt="OREMA Firma de Abogados - Productos Digitales"
+            class="logo"
+        >
 
-            <div class="header-text">
-                <strong>OREMA | Productos Digitales</strong>
-                <span>Herramientas jurídicas para el ejercicio profesional</span>
-            </div>
+        <div class="header-text">
 
-        </div>
+            <strong>OREMA | Productos Digitales</strong>
 
-    </header>
-
-
-    <!-- =========================
-         PORTADA
-    ========================== -->
-
-    <section class="hero">
-
-        <div class="hero-container">
-
-            <div class="badge">
-                🇵🇪 Diseñado para el ejercicio jurídico en el Perú
-            </div>
-
-            <h1>
-                Biblioteca Jurídica OREMA
-            </h1>
-
-            <p>
-                Herramientas jurídicas asistidas por inteligencia artificial
-                para analizar expedientes, resoluciones, escritos,
-                recursos y estrategias procesales.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         BUSCADOR
-    ========================== -->
-
-    <div class="search-container">
-
-        <div class="search-box">
-
-            <span class="search-icon">🔎</span>
-
-            <input
-                type="text"
-                id="buscador"
-                placeholder="Buscar una herramienta jurídica..."
-                autocomplete="off"
-            >
+            <span>
+                Herramientas jurídicas para el ejercicio profesional
+            </span>
 
         </div>
 
     </div>
 
+</header>
 
-    <!-- =========================
-         CONTENIDO PRINCIPAL
-    ========================== -->
 
-    <main>
 
-        <div class="section-title">
+<!-- =========================
+     HERO
+========================= -->
 
-            <h2>
-                Actuación Jurídica
-            </h2>
+<section class="hero">
 
-            <p>
-                Selecciona el área jurídica que deseas trabajar
-            </p>
+    <div class="hero-container">
+
+        <div class="badge">
+            🇵🇪 Diseñado para el ejercicio jurídico en el Perú
+        </div>
+
+        <h1>
+            Guía de Prompts Jurídicos
+        </h1>
+
+        <p>
+            Desarrollada por abogados, para abogados.<br>
+            Prompts jurídicos estructurados y contextualizados
+            al ejercicio profesional en el Perú.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ACTUACIONES
+========================= -->
+
+<main>
+
+    <div class="section-title">
+
+        <h2>
+            Guía de Actuación Jurídica
+        </h2>
+
+        <p>
+            Selecciona el área jurídica y la actuación que deseas desarrollar
+        </p>
+
+    </div>
+
+
+
+    <div class="categories">
+
+
+        <!-- CIVIL -->
+
+        <div class="category civil">
+
+            <div class="category-icon">
+                ⚖️
+            </div>
+
+            <h3>
+                Actuación Procesal Civil
+            </h3>
 
         </div>
 
 
-        <div class="categories" id="categorias">
 
+        <!-- LABORAL -->
 
-            <!-- CIVIL -->
+        <div class="category laboral">
 
-            <div class="category"
-                data-search="civil actuación procesal civil demanda contestación recurso apelación casación">
-
-                <div class="category-icon">
-                    ⚖️
-                </div>
-
-                <h3>
-                    Actuación Procesal Civil
-                </h3>
-
-                <p>
-                    Análisis y preparación de actuaciones
-                    dentro del proceso civil peruano.
-                </p>
-
+            <div class="category-icon">
+                💼
             </div>
 
-
-            <!-- LABORAL -->
-
-            <div class="category"
-                data-search="laboral actuación procesal laboral demanda contestación reposición cas apelación casación">
-
-                <div class="category-icon">
-                    💼
-                </div>
-
-                <h3>
-                    Actuación Procesal Laboral
-                </h3>
-
-                <p>
-                    Herramientas para procesos laborales,
-                    pretensiones, defensa y recursos.
-                </p>
-
-            </div>
-
-
-            <!-- PENAL -->
-
-            <div class="category"
-                data-search="penal actuación procesal penal investigación acusación defensa apelación casación">
-
-                <div class="category-icon">
-                    ⚔️
-                </div>
-
-                <h3>
-                    Actuación Procesal Penal
-                </h3>
-
-                <p>
-                    Análisis estratégico de actuaciones
-                    y recursos dentro del proceso penal.
-                </p>
-
-            </div>
-
-
-            <!-- CONSTITUCIONAL -->
-
-            <div class="category"
-                data-search="constitucional actuación procesal constitucional amparo habeas corpus cumplimiento habeas data recurso">
-
-                <div class="category-icon">
-                    🏛️
-                </div>
-
-                <h3>
-                    Actuación Procesal Constitucional
-                </h3>
-
-                <p>
-                    Herramientas para procesos constitucionales
-                    y tutela de derechos fundamentales.
-                </p>
-
-            </div>
-
-
-            <!-- ADMINISTRATIVO -->
-
-            <div class="category"
-                data-search="administrativo indecopi actuación administrativa procedimiento administrativo recurso apelación reconsideración sanción">
-
-                <div class="category-icon">
-                    🏢
-                </div>
-
-                <h3>
-                    Actuación Administrativa e INDECOPI
-                </h3>
-
-                <p>
-                    Análisis de procedimientos administrativos,
-                    recursos y controversias ante INDECOPI.
-                </p>
-
-            </div>
-
-
-            <!-- FAMILIA -->
-
-            <div class="category"
-                data-search="familia actuación procesal familia alimentos tenencia régimen visitas filiación divorcio">
-
-                <div class="category-icon">
-                    👨‍👩‍👧
-                </div>
-
-                <h3>
-                    Actuación Procesal de Familia
-                </h3>
-
-                <p>
-                    Herramientas para procesos de alimentos,
-                    tenencia, visitas, filiación y familia.
-                </p>
-
-            </div>
-
-
-            <!-- JURISPRUDENCIA -->
-
-            <div class="category"
-                data-search="jurisprudencia precedente sentencia casación tribunal constitucional análisis jurisprudencial">
-
-                <div class="category-icon">
-                    📚
-                </div>
-
-                <h3>
-                    Jurisprudencia
-                </h3>
-
-                <p>
-                    Análisis, comparación y construcción
-                    de argumentos a partir de jurisprudencia.
-                </p>
-
-            </div>
-
+            <h3>
+                Actuación Procesal Laboral
+            </h3>
 
         </div>
 
 
-        <div id="sinResultados">
 
-            <strong>
-                No encontramos una herramienta relacionada.
-            </strong>
+        <!-- PENAL -->
 
-            <br>
+        <div class="category penal">
 
-            Intenta con otro término de búsqueda.
+            <div class="category-icon">
+                ⚔️
+            </div>
+
+            <h3>
+                Actuación Procesal Penal
+            </h3>
 
         </div>
 
-    </main>
 
 
-    <!-- =========================
-         PIE DE PÁGINA
-    ========================== -->
+        <!-- CONSTITUCIONAL -->
 
-    <footer>
+        <div class="category constitucional">
 
-        <strong>OREMA | PRODUCTOS DIGITALES</strong>
+            <div class="category-icon">
+                🏛️
+            </div>
 
-        <br><br>
+            <h3>
+                Actuación Procesal Constitucional
+            </h3>
 
-        Herramientas jurídicas asistidas por inteligencia artificial
-
-        <br>
-
-        Derecho peruano · Productividad jurídica
-
-    </footer>
+        </div>
 
 
-    <!-- =========================
-         BUSCADOR
-    ========================== -->
 
-    <script>
+        <!-- ADMINISTRATIVO -->
 
-        const buscador = document.getElementById("buscador");
+        <div class="category administrativo">
 
-        const categorias =
-            document.querySelectorAll(".category");
+            <div class="category-icon">
+                📋
+            </div>
 
-        const sinResultados =
-            document.getElementById("sinResultados");
+            <h3>
+                Actuación Procesal Administrativa
+            </h3>
 
-
-        buscador.addEventListener("input", function () {
-
-            const texto =
-                this.value
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
-
-            let encontrados = 0;
+        </div>
 
 
-            categorias.forEach(function (categoria) {
 
-                const contenido =
-                    categoria
-                        .getAttribute("data-search")
-                        .toLowerCase()
-                        .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "");
+        <!-- FAMILIA -->
 
+        <div class="category familia">
 
-                if (contenido.includes(texto)) {
+            <div class="category-icon">
+                👨‍👩‍👧
+            </div>
 
-                    categoria.style.display = "block";
+            <h3>
+                Actuación Procesal de Familia
+            </h3>
 
-                    encontrados++;
-
-                } else {
-
-                    categoria.style.display = "none";
-
-                }
-
-            });
+        </div>
 
 
-            if (encontrados === 0 && texto !== "") {
 
-                sinResultados.style.display = "block";
+        <!-- JURISPRUDENCIA -->
 
-            } else {
+        <div class="category jurisprudencia">
 
-                sinResultados.style.display = "none";
+            <div class="category-icon">
+                📚
+            </div>
 
-            }
+            <h3>
+                Jurisprudencia
+            </h3>
 
-        });
+        </div>
 
-    </script>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <strong>
+        OREMA | PRODUCTOS DIGITALES
+    </strong>
+
+    <div class="footer-rights">
+        Derechos reservados; Grupo Empresarial OREMA SRL
+    </div>
+
+    <div class="footer-ruc">
+        RUC 20614112582
+    </div>
+
+</footer>
 
 
 </body>
-
 </html>
