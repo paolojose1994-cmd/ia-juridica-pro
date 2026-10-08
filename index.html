@@ -4,11 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OREMA | Productos Digitales</title>
+<title>OREMA | Guía de Prompts Jurídicos</title>
 
-<meta name="description" content="Guía de Prompts Jurídicos desarrollada por abogados para el ejercicio profesional en el Perú.">
+<meta name="description" content="Guía de Prompts Jurídicos desarrollada por abogados, para abogados, contextualizada al ejercicio profesional en el Perú.">
+
+<!-- TIPOGRAFÍAS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+:root {
+    --navy: #082b49;
+    --navy-2: #103e61;
+    --blue: #1677c8;
+    --blue-soft: #eaf5ff;
+    --gold: #c99a32;
+    --text: #102b45;
+    --muted: #64748b;
+    --white: #ffffff;
+    --page: #f7fbff;
+    --border: #dceaf5;
+}
 
 * {
     box-sizing: border-box;
@@ -16,351 +34,864 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f9fd;
-    color: #172033;
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--page);
+    color: var(--text);
     line-height: 1.5;
 }
 
-/* =========================
-   HEADER
-========================= */
 
-header {
-    background: #ffffff;
-    border-bottom: 1px solid #dceaf4;
-    padding: 18px 30px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.logo {
-    width: 240px;
-    height: auto;
-    display: block;
-}
-
-.header-text {
-    text-align: right;
-}
-
-.header-text strong {
-    display: block;
-    color: #0878b8;
-    font-size: 15px;
-}
-
-.header-text span {
-    color: #6b7c8c;
-    font-size: 13px;
-}
-
-
-/* =========================
+/* =====================================
    HERO
-========================= */
+===================================== */
 
 .hero {
-    background: linear-gradient(135deg, #29a9df, #69c9ed);
-    color: white;
-    padding: 70px 20px 75px;
+    position: relative;
+    overflow: hidden;
+    min-height: 475px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 8% 15%,
+            rgba(112,190,239,.20) 0 12%,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 92% 85%,
+            rgba(22,119,200,.10) 0 12%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f4faff 48%,
+            #e7f3fc 100%
+        );
+
+    border-bottom: 1px solid var(--border);
 }
 
-.hero-container {
-    max-width: 950px;
-    margin: auto;
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border: 1px solid rgba(201,154,50,.38);
+
+    border-radius: 50%;
+
+    left: -330px;
+    top: -240px;
 }
 
-.badge {
-    display: inline-block;
-    background: rgba(255,255,255,.18);
-    border: 1px solid rgba(255,255,255,.35);
-    padding: 9px 18px;
-    border-radius: 30px;
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border: 1px solid rgba(201,154,50,.30);
+
+    border-radius: 50%;
+
+    right: -340px;
+    bottom: -300px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1000px;
+
+    padding: 65px 20px 70px;
+}
+
+
+/* =====================================
+   ETIQUETA SUPERIOR
+===================================== */
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    color: #a77918;
+
     font-size: 13px;
-    margin-bottom: 22px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
 }
+
+.eyebrow::before,
+.eyebrow::after {
+
+    content: "";
+
+    width: 34px;
+
+    height: 2px;
+
+    background: var(--gold);
+}
+
+
+/* =====================================
+   TITULO
+===================================== */
 
 .hero h1 {
-    font-size: 44px;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
-    font-weight: 700;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    color: #071d34;
+
+    margin-bottom: 12px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #ffffff;
-    max-width: 720px;
+.hero h1 span {
+    color: var(--blue);
+}
+
+
+/* =====================================
+   SUBTITULO
+===================================== */
+
+.hero-subtitle {
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(21px, 2.5vw, 30px);
+
+    font-weight: 600;
+
+    color: #102f4d;
+
+    margin-bottom: 12px;
+}
+
+
+/* =====================================
+   DESCRIPCION
+===================================== */
+
+.hero-description {
+
+    max-width: 700px;
+
     margin: auto;
+
+    font-size: 17px;
+
+    color: #526b84;
 }
 
 
-/* =========================
-   CONTENIDO
-========================= */
+/* =====================================
+   BADGE PERU
+===================================== */
+
+.peru-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    padding: 11px 23px;
+
+    border: 1px solid #d6e8f6;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.78);
+
+    box-shadow:
+        0 8px 25px rgba(23,119,200,.08);
+
+    color: #244968;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.peru-flag {
+    font-size: 18px;
+}
+
+
+/* =====================================
+   CONTENIDO PRINCIPAL
+===================================== */
 
 main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 65px 20px 75px;
+
+    max-width: 1240px;
+
+    margin: 0 auto;
+
+    padding: 60px 25px 75px;
 }
 
-.section-title {
+
+/* =====================================
+   TITULO DE SECCION
+===================================== */
+
+.section-heading {
+
     text-align: center;
-    margin-bottom: 40px;
+
+    margin-bottom: 34px;
 }
 
-.section-title h2 {
-    font-size: 31px;
-    color: #0878b8;
-    margin-bottom: 8px;
+.section-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
 }
 
-.section-title p {
-    color: #68798a;
+.section-eyebrow::before,
+.section-eyebrow::after {
+
+    content: "";
+
+    width: 35px;
+
+    height: 2px;
+
+    background: var(--gold);
+}
+
+.section-heading h2 {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: clamp(25px, 3vw, 34px);
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #0a2038;
+
+    margin-bottom: 7px;
+}
+
+.section-heading p {
+
+    color: #5e7489;
+
     font-size: 16px;
 }
 
 
-/* =========================
+/* =====================================
    TARJETAS
-========================= */
+===================================== */
 
 .categories {
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+
+    gap: 20px;
 }
 
 .category {
-    min-height: 190px;
-    border-radius: 18px;
-    padding: 35px 20px;
-    text-align: center;
-    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 122px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     align-items: center;
 
-    transition: all .25s ease;
+    gap: 22px;
 
-    border: 1px solid rgba(0,0,0,.05);
+    padding: 20px 24px 20px 28px;
 
-    box-shadow:
-        0 7px 20px rgba(31, 100, 145, .10);
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+.category::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    right: -45px;
+
+    bottom: -80px;
+
+    background: rgba(255,255,255,.42);
 }
 
 .category:hover {
-    transform: translateY(-7px);
+
+    transform: translateY(-5px);
 
     box-shadow:
-        0 15px 30px rgba(31, 100, 145, .18);
+        0 16px 35px rgba(20,70,110,.12);
 }
 
 
-/* =========================
-   COLORES POR ÁREA
-========================= */
+/* =====================================
+   ICONOS
+===================================== */
+
+.category-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 0 0 78px;
+
+    width: 78px;
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.72);
+
+    border: 1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 5px 15px rgba(25,70,100,.07);
+
+    font-size: 36px;
+}
+
+
+/* =====================================
+   TEXTO TARJETAS
+===================================== */
+
+.category-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    flex: 1;
+}
+
+.category h3 {
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 21px;
+
+    line-height: 1.2;
+
+    color: #102e4b;
+
+    max-width: 260px;
+}
+
+
+/* =====================================
+   FLECHA
+===================================== */
+
+.arrow {
+
+    position: relative;
+
+    z-index: 3;
+
+    flex: 0 0 44px;
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.78);
+
+    font-size: 23px;
+
+    transition: transform .2s ease;
+}
+
+.category:hover .arrow {
+
+    transform: translateX(4px);
+}
+
+
+/* =====================================
+   COLORES POR AREA
+===================================== */
+
 
 /* CIVIL */
 
 .civil {
-    background: #e3f5ff;
-    border-top: 5px solid #2196d3;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf7ff,
+            #dcefff
+        );
+
+    border-color: #c9e3f8;
 }
 
-.civil .category-icon {
-    color: #1687c5;
+.civil .category-icon,
+.civil .arrow {
+
+    color: #1677c8;
 }
 
 
 /* LABORAL */
 
 .laboral {
-    background: #e7f8f2;
-    border-top: 5px solid #25a77a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #effcf8,
+            #dff5ee
+        );
+
+    border-color: #c9e9df;
 }
 
-.laboral .category-icon {
-    color: #168c67;
+.laboral .category-icon,
+.laboral .arrow {
+
+    color: #15906f;
 }
 
 
 /* PENAL */
 
 .penal {
-    background: #fff0f0;
-    border-top: 5px solid #e66a6a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4f4,
+            #ffe4e6
+        );
+
+    border-color: #f5d2d5;
 }
 
-.penal .category-icon {
-    color: #d94f4f;
+.penal .category-icon,
+.penal .arrow {
+
+    color: #d34d5b;
 }
 
 
 /* CONSTITUCIONAL */
 
 .constitucional {
-    background: #f0edff;
-    border-top: 5px solid #8068d8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f1ff,
+            #e9e4ff
+        );
+
+    border-color: #ddd5fa;
 }
 
-.constitucional .category-icon {
-    color: #6a52c4;
+.constitucional .category-icon,
+.constitucional .arrow {
+
+    color: #7259c7;
 }
 
 
 /* ADMINISTRATIVO */
 
 .administrativo {
-    background: #fff7e3;
-    border-top: 5px solid #e4a72f;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9ec,
+            #fff0d9
+        );
+
+    border-color: #f2dfbd;
 }
 
-.administrativo .category-icon {
-    color: #c58b15;
+.administrativo .category-icon,
+.administrativo .arrow {
+
+    color: #c88716;
 }
 
 
 /* FAMILIA */
 
 .familia {
-    background: #fff0f7;
-    border-top: 5px solid #df73a4;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff3fa,
+            #fce6f3
+        );
+
+    border-color: #f1d5e5;
 }
 
-.familia .category-icon {
-    color: #ca5689;
+.familia .category-icon,
+.familia .arrow {
+
+    color: #cb4d92;
 }
 
 
 /* JURISPRUDENCIA */
 
 .jurisprudencia {
-    background: #e9f1ff;
-    border-top: 5px solid #4d82d8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #dcecff
+        );
+
+    border-color: #c9e0f5;
+
+    grid-column: 2;
 }
 
-.jurisprudencia .category-icon {
-    color: #386dc4;
-}
+.jurisprudencia .category-icon,
+.jurisprudencia .arrow {
 
-
-/* =========================
-   ICONOS
-========================= */
-
-.category-icon {
-    font-size: 45px;
-    margin-bottom: 18px;
-}
-
-.category h3 {
-    font-size: 19px;
-    color: #173b55;
-    line-height: 1.3;
+    color: #1475c5;
 }
 
 
-/* =========================
+/* =====================================
    FOOTER
-========================= */
+===================================== */
 
 footer {
-    background: #0878b8;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071f36,
+            #0b3556
+        );
+
+    color: #d9e6f1;
+
+    padding: 38px 25px;
+}
+
+.footer-container {
+
+    max-width: 1240px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* TEXTO IZQUIERDO */
+
+.footer-info strong {
+
+    display: block;
+
     color: #ffffff;
-    text-align: center;
-    padding: 32px 20px;
+
+    font-size: 14px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 9px;
+}
+
+.footer-info span {
+
     font-size: 13px;
-}
 
-footer strong {
-    font-size: 15px;
-}
-
-.footer-rights {
-    margin-top: 10px;
-    opacity: .95;
-}
-
-.footer-ruc {
-    margin-top: 5px;
-    font-weight: bold;
+    color: #b9cddd;
 }
 
 
-/* =========================
+/* INFORMACION LEGAL */
+
+.footer-legal {
+
+    text-align: center;
+
+    padding: 0 35px;
+
+    border-left:
+        1px solid rgba(255,255,255,.18);
+
+    border-right:
+        1px solid rgba(255,255,255,.18);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.footer-legal strong {
+
+    color: #ffffff;
+}
+
+
+/* LOGO */
+
+.footer-logo {
+
+    justify-self: end;
+
+    width: 210px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    filter:
+        brightness(0)
+        invert(1);
+
+    opacity: .96;
+}
+
+
+/* =====================================
    RESPONSIVE
-========================= */
+===================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
     .categories {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .header-text {
-        display: none;
+    .jurisprudencia {
+
+        grid-column: auto;
     }
 
-    .hero h1 {
-        font-size: 36px;
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+    }
+
+    .footer-logo {
+
+        justify-self: center;
+
+        order: -1;
+    }
+
+    .footer-legal {
+
+        border-left: 0;
+
+        border-right: 0;
+
+        padding: 18px 0;
+
+        border-top:
+            1px solid rgba(255,255,255,.15);
+
+        border-bottom:
+            1px solid rgba(255,255,255,.15);
     }
 }
 
 
-@media (max-width: 550px) {
-
-    header {
-        padding: 14px 18px;
-    }
-
-    .logo {
-        width: 200px;
-        margin: auto;
-    }
-
-    .header-container {
-        justify-content: center;
-    }
+@media (max-width: 600px) {
 
     .hero {
-        padding: 55px 20px 60px;
+
+        min-height: auto;
+    }
+
+    .hero-content {
+
+        padding:
+            55px 18px 60px;
     }
 
     .hero h1 {
-        font-size: 30px;
+
+        letter-spacing: -1px;
     }
 
-    .hero p {
-        font-size: 16px;
+    .hero-description {
+
+        font-size: 15px;
+    }
+
+    main {
+
+        padding:
+            48px 16px 55px;
+    }
+
+    .section-heading h2 {
+
+        letter-spacing: 2px;
+
+        font-size: 23px;
     }
 
     .categories {
+
         grid-template-columns: 1fr;
     }
 
     .category {
-        min-height: 170px;
+
+        min-height: 112px;
+
+        padding: 17px;
+
+        gap: 15px;
     }
 
-    .section-title h2 {
-        font-size: 27px;
+    .category-icon {
+
+        flex-basis: 62px;
+
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 29px;
+    }
+
+    .category h3 {
+
+        font-size: 18px;
+    }
+
+    .arrow {
+
+        flex-basis: 38px;
+
+        width: 38px;
+
+        height: 38px;
+    }
+
+    .footer-logo {
+
+        width: 180px;
     }
 
 }
@@ -372,57 +903,40 @@ footer strong {
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-
-    <div class="header-container">
-
-        <img
-            src="logo-orema.png"
-            alt="OREMA Firma de Abogados - Productos Digitales"
-            class="logo"
-        >
-
-        <div class="header-text">
-
-            <strong>OREMA | Productos Digitales</strong>
-
-            <span>
-                Herramientas jurídicas para el ejercicio profesional
-            </span>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-
-<!-- =========================
+<!-- =====================================
      HERO
-========================= -->
+===================================== -->
 
 <section class="hero">
 
-    <div class="hero-container">
+    <div class="hero-content">
 
-        <div class="badge">
-            🇵🇪 Diseñado para el ejercicio jurídico en el Perú
+        <div class="eyebrow">
+            Productos Digitales
         </div>
 
         <h1>
-            Guía de Prompts Jurídicos
+            Guía de Prompts <span>Jurídicos</span>
         </h1>
 
-        <p>
-            Desarrollada por abogados, para abogados.<br>
+        <div class="hero-subtitle">
+            Desarrollada por abogados, para abogados.
+        </div>
+
+        <p class="hero-description">
             Prompts jurídicos estructurados y contextualizados
             al ejercicio profesional en el Perú.
         </p>
+
+        <div class="peru-badge">
+
+            <span class="peru-flag">
+                🇵🇪
+            </span>
+
+            Diseñado para el ejercicio jurídico en el Perú
+
+        </div>
 
     </div>
 
@@ -430,13 +944,17 @@ footer strong {
 
 
 
-<!-- =========================
-     ACTUACIONES
-========================= -->
+<!-- =====================================
+     GUIA DE ACTUACION
+===================================== -->
 
 <main>
 
-    <div class="section-title">
+    <div class="section-heading">
+
+        <div class="section-eyebrow">
+            Áreas jurídicas
+        </div>
 
         <h2>
             Guía de Actuación Jurídica
@@ -449,119 +967,180 @@ footer strong {
     </div>
 
 
-
     <div class="categories">
 
 
         <!-- CIVIL -->
 
-        <div class="category civil">
+        <a href="#" class="category civil">
 
             <div class="category-icon">
-                ⚖️
+                ⚖
             </div>
 
-            <h3>
-                Actuación Procesal Civil
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal Civil
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- LABORAL -->
 
-        <div class="category laboral">
+        <a href="#" class="category laboral">
 
             <div class="category-icon">
-                💼
+                ▣
             </div>
 
-            <h3>
-                Actuación Procesal Laboral
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal Laboral
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- PENAL -->
 
-        <div class="category penal">
+        <a href="#" class="category penal">
 
             <div class="category-icon">
-                ⚔️
+                ⚒
             </div>
 
-            <h3>
-                Actuación Procesal Penal
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal Penal
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- CONSTITUCIONAL -->
 
-        <div class="category constitucional">
+        <a href="#" class="category constitucional">
 
             <div class="category-icon">
-                🏛️
+                ♜
             </div>
 
-            <h3>
-                Actuación Procesal Constitucional
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal Constitucional
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- ADMINISTRATIVO -->
 
-        <div class="category administrativo">
+        <a href="#" class="category administrativo">
 
             <div class="category-icon">
-                📋
+                ▤
             </div>
 
-            <h3>
-                Actuación Procesal Administrativa
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal Administrativa
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- FAMILIA -->
 
-        <div class="category familia">
+        <a href="#" class="category familia">
 
             <div class="category-icon">
-                👨‍👩‍👧
+                ♧
             </div>
 
-            <h3>
-                Actuación Procesal de Familia
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Actuación<br>
+                    Procesal de Familia
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
 
         <!-- JURISPRUDENCIA -->
 
-        <div class="category jurisprudencia">
+        <a href="#" class="category jurisprudencia">
 
             <div class="category-icon">
-                📚
+                ▤
             </div>
 
-            <h3>
-                Jurisprudencia
-            </h3>
+            <div class="category-content">
 
-        </div>
+                <h3>
+                    Jurisprudencia
+                </h3>
+
+            </div>
+
+            <div class="arrow">
+                →
+            </div>
+
+        </a>
 
 
     </div>
@@ -570,22 +1149,53 @@ footer strong {
 
 
 
-<!-- =========================
+<!-- =====================================
      FOOTER
-========================= -->
+===================================== -->
 
 <footer>
 
-    <strong>
-        OREMA | PRODUCTOS DIGITALES
-    </strong>
+    <div class="footer-container">
 
-    <div class="footer-rights">
-        Derechos reservados; Grupo Empresarial OREMA SRL
-    </div>
 
-    <div class="footer-ruc">
-        RUC 20614112582
+        <div class="footer-info">
+
+            <strong>
+                OREMA | PRODUCTOS DIGITALES
+            </strong>
+
+            <span>
+                Herramientas jurídicas para el ejercicio profesional
+            </span>
+
+        </div>
+
+
+
+        <div class="footer-legal">
+
+            Derechos reservados;
+            <strong>
+                Grupo Empresarial OREMA SRL
+            </strong>
+
+            <br>
+
+            <strong>
+                RUC 20614112582
+            </strong>
+
+        </div>
+
+
+
+        <img
+            src="logo-orema.png"
+            alt="OREMA Firma de Abogados - Productos Digitales"
+            class="footer-logo"
+        >
+
+
     </div>
 
 </footer>
