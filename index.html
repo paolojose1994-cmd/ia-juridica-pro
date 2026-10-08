@@ -1107,6 +1107,133 @@ footer {
 
 }
 
+
+/* =====================================================
+   CAPAS DE ACTUACIÓN
+===================================================== */
+
+.module-section {
+    margin-top: 55px;
+    padding: 52px 0 10px;
+    scroll-margin-top: 25px;
+    border-top: 1px solid #dbe7f1;
+}
+
+.module-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.module-header h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(27px, 4vw, 38px);
+    color: #082b49;
+    margin-bottom: 8px;
+}
+
+.module-header p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.process-module {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 112px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #dce7f0;
+    box-shadow: 0 5px 16px rgba(8,43,73,.07);
+    text-decoration: none;
+    color: var(--texto);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.process-module:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(8,43,73,.12);
+}
+
+.process-number {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #1478d1;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.process-module h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.2;
+    color: #082b49;
+    margin-bottom: 5px;
+}
+
+.process-module p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.process-arrow {
+    margin-left: auto;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f6fb;
+    color: #1478d1;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.module-civil .process-number { background:#1478d1; }
+.module-laboral .process-number { background:#099b7a; }
+.module-penal .process-number { background:#d62839; }
+.module-constitucional .process-number { background:#673ab7; }
+.module-administrativo .process-number { background:#d99400; }
+.module-familia .process-number { background:#d63384; }
+.module-jurisprudencia .process-number { background:#083b63; }
+
+@media (max-width: 700px) {
+    .module-section {
+        margin-top: 42px;
+        padding-top: 40px;
+    }
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+    .process-module {
+        min-height: 100px;
+        padding: 15px;
+    }
+    .process-module h3 {
+        font-size: 18px;
+    }
+    .process-module p {
+        font-size: 12.5px;
+    }
+}
+
 </style>
 
 </head>
@@ -1266,7 +1393,7 @@ footer {
              LABORAL
         ================================================== -->
 
-        <a href="#" class="category laboral">
+        <a href="#laboral-module" class="category laboral">
 
 
             <div class="category-icon">
@@ -1327,7 +1454,7 @@ footer {
              PENAL
         ================================================== -->
 
-        <a href="#" class="category penal">
+        <a href="#penal-module" class="category penal">
 
 
             <div class="category-icon">
@@ -1394,7 +1521,7 @@ footer {
              CONSTITUCIONAL
         ================================================== -->
 
-        <a href="#" class="category constitucional">
+        <a href="#constitucional-module" class="category constitucional">
 
 
             <div class="category-icon">
@@ -1459,7 +1586,7 @@ footer {
              ADMINISTRATIVO
         ================================================== -->
 
-        <a href="#" class="category administrativo">
+        <a href="#administrativo-module" class="category administrativo">
 
 
             <div class="category-icon">
@@ -1524,7 +1651,7 @@ footer {
              FAMILIA
         ================================================== -->
 
-        <a href="#" class="category familia">
+        <a href="#familia-module" class="category familia">
 
 
             <div class="category-icon">
@@ -1601,7 +1728,7 @@ footer {
              JURISPRUDENCIA
         ================================================== -->
 
-        <a href="#" class="category jurisprudencia">
+        <a href="#jurisprudencia-module" class="category jurisprudencia">
 
 
             <div class="category-icon">
@@ -1660,170 +1787,483 @@ footer {
     </div>
 
 
+
     <!-- =================================================
          ACTUACIÓN PROCESAL CIVIL
     ================================================== -->
 
-    <section id="civil-module" class="module-section">
+    <section id="civil-module" class="module-section module-civil">
 
         <div class="module-header">
-
             <h2>ACTUACIÓN PROCESAL CIVIL</h2>
-
-            <p>
-                Selecciona la actuación procesal que deseas desarrollar.
-            </p>
-
+            <p>Selecciona la actuación procesal que deseas desarrollar.</p>
         </div>
 
+        <div class="module-grid">
 
-        <div class="civil-modules">
-
-
-            <!-- 01. FORMULAR DEMANDA -->
-
-            <a href="#" class="civil-module civil-module-01">
-
-                <span class="module-number">01</span>
-
-                <div>
-                    <h3>Formular demanda</h3>
-
-                    <p>
-                        Demanda, requisitos, competencia, legitimidad,
-                        pretensión, vías y aspectos relacionados.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div><h3>Formular demanda</h3><p>Demanda, requisitos, competencia, legitimidad, pretensión, vías y aspectos relacionados.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 02. CONTESTAR DEMANDA -->
-
-            <a href="#" class="civil-module civil-module-02">
-
-                <span class="module-number">02</span>
-
-                <div>
-                    <h3>Contestar demanda</h3>
-
-                    <p>
-                        Contestación, defensas, excepciones y cuestiones
-                        procesales relacionadas.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div><h3>Contestar demanda</h3><p>Contestación, defensas, excepciones y cuestiones procesales relacionadas.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 03. ANALIZAR RESOLUCIÓN -->
-
-            <a href="#" class="civil-module civil-module-03">
-
-                <span class="module-number">03</span>
-
-                <div>
-                    <h3>Analizar resolución</h3>
-
-                    <p>
-                        Resoluciones, contenido, motivación y efectos
-                        según corresponda.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div><h3>Analizar resolución</h3><p>Resoluciones, contenido, motivación y efectos según corresponda.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 04. RECURSOS IMPUGNATORIOS -->
-
-            <a href="#" class="civil-module civil-module-04">
-
-                <span class="module-number">04</span>
-
-                <div>
-                    <h3>Recursos impugnatorios</h3>
-
-                    <p>
-                        Reposición, apelación, queja y reglas generales
-                        de impugnación.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div><h3>Recursos impugnatorios</h3><p>Reposición, apelación, queja y reglas generales de impugnación.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 05. CASACIÓN -->
-
-            <a href="#" class="civil-module civil-module-05">
-
-                <span class="module-number">05</span>
-
-                <div>
-                    <h3>Casación</h3>
-
-                    <p>
-                        Régimen específico de casación y requisitos
-                        correspondientes.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div><h3>Casación</h3><p>Régimen específico de casación y requisitos correspondientes.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 06. AUDITAR ESCRITO -->
-
-            <a href="#" class="civil-module civil-module-06">
-
-                <span class="module-number">06</span>
-
-                <div>
-                    <h3>Auditar escrito</h3>
-
-                    <p>
-                        Revisión integral del escrito, estructura,
-                        contenido y riesgos procesales.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div><h3>Auditar escrito</h3><p>Revisión integral del escrito, estructura, contenido y riesgos procesales.</p></div>
+                <span class="process-arrow">→</span>
             </a>
 
-
-            <!-- 07. PROYECTO DE ESCRITO COMPLETO DE DEMANDA -->
-
-            <a href="#" class="civil-module civil-module-07">
-
-                <span class="module-number">07</span>
-
-                <div>
-                    <h3>Proyecto de escrito completo de demanda</h3>
-
-                    <p>
-                        Elaboración estructurada de un proyecto integral
-                        de demanda.
-                    </p>
-                </div>
-
-                <span class="module-arrow">→</span>
-
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div><h3>Proyecto de escrito completo de demanda</h3><p>Elaboración estructurada de un proyecto integral de demanda.</p></div>
+                <span class="process-arrow">→</span>
             </a>
-
 
         </div>
-
     </section>
 
+
+
+    <section id="laboral-module" class="module-section module-laboral">
+        <div class="module-header">
+            <h2>ACTUACIÓN PROCESAL LABORAL</h2>
+            <p>Estructura preparada para incorporar las herramientas jurídicas del módulo.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div>
+                    <h3>Segmento 01</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div>
+                    <h3>Segmento 02</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div>
+                    <h3>Segmento 03</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div>
+                    <h3>Segmento 04</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div>
+                    <h3>Segmento 05</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div>
+                    <h3>Segmento 06</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div>
+                    <h3>Segmento 07</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="penal-module" class="module-section module-penal">
+        <div class="module-header">
+            <h2>ACTUACIÓN PROCESAL PENAL</h2>
+            <p>Estructura preparada para incorporar las herramientas jurídicas del módulo.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div>
+                    <h3>Segmento 01</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div>
+                    <h3>Segmento 02</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div>
+                    <h3>Segmento 03</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div>
+                    <h3>Segmento 04</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div>
+                    <h3>Segmento 05</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div>
+                    <h3>Segmento 06</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div>
+                    <h3>Segmento 07</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="constitucional-module" class="module-section module-constitucional">
+        <div class="module-header">
+            <h2>ACTUACIÓN PROCESAL CONSTITUCIONAL</h2>
+            <p>Estructura preparada para incorporar las herramientas jurídicas del módulo.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div>
+                    <h3>Segmento 01</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div>
+                    <h3>Segmento 02</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div>
+                    <h3>Segmento 03</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div>
+                    <h3>Segmento 04</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div>
+                    <h3>Segmento 05</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div>
+                    <h3>Segmento 06</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div>
+                    <h3>Segmento 07</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="administrativo-module" class="module-section module-administrativo">
+        <div class="module-header">
+            <h2>ACTUACIÓN PROCESAL ADMINISTRATIVA</h2>
+            <p>Estructura preparada para incorporar las herramientas jurídicas del módulo.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div>
+                    <h3>Segmento 01</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div>
+                    <h3>Segmento 02</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div>
+                    <h3>Segmento 03</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div>
+                    <h3>Segmento 04</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div>
+                    <h3>Segmento 05</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div>
+                    <h3>Segmento 06</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div>
+                    <h3>Segmento 07</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="familia-module" class="module-section module-familia">
+        <div class="module-header">
+            <h2>ACTUACIÓN PROCESAL DE FAMILIA</h2>
+            <p>Estructura preparada para incorporar las herramientas jurídicas del módulo.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div>
+                    <h3>Segmento 01</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div>
+                    <h3>Segmento 02</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div>
+                    <h3>Segmento 03</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div>
+                    <h3>Segmento 04</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div>
+                    <h3>Segmento 05</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div>
+                    <h3>Segmento 06</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div>
+                    <h3>Segmento 07</h3>
+                    <p>Herramienta jurídica en desarrollo.</p>
+                </div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="jurisprudencia-module" class="module-section module-jurisprudencia">
+        <div class="module-header">
+            <h2>JURISPRUDENCIA</h2>
+            <p>Selecciona la herramienta jurisprudencial que deseas desarrollar.</p>
+        </div>
+        <div class="module-grid">
+
+            <a href="#" class="process-module">
+                <span class="process-number">01</span>
+                <div><h3>Buscar jurisprudencia</h3><p>Localización y selección de resoluciones relevantes según el problema jurídico.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">02</span>
+                <div><h3>Analizar jurisprudencia</h3><p>Análisis de hechos, problema jurídico, fundamentos y decisión.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">03</span>
+                <div><h3>Extraer criterio jurisprudencial</h3><p>Identificación y formulación estructurada del criterio jurídico relevante.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">04</span>
+                <div><h3>Comparar jurisprudencia</h3><p>Comparación de criterios entre resoluciones y su evolución.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">05</span>
+                <div><h3>Identificar precedentes y plenos</h3><p>Organización y análisis de precedentes, acuerdos y plenos aplicables.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">06</span>
+                <div><h3>Aplicar jurisprudencia al caso</h3><p>Evaluación de la pertinencia del criterio frente al caso concreto.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+            <a href="#" class="process-module">
+                <span class="process-number">07</span>
+                <div><h3>Auditar cita jurisprudencial</h3><p>Revisión de la correspondencia entre la cita y el contenido real de la resolución.</p></div>
+                <span class="process-arrow">→</span>
+            </a>
+
+        </div>
+    </section>
 
 </main>
 
