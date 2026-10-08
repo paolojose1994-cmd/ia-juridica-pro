@@ -1,132 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>OREMA | Guía de Prompts Jurídicos</title>
 
-<meta name="description" content="Guía de Prompts Jurídicos desarrollada por abogados, para abogados, contextualizada al ejercicio profesional en el Perú.">
+<meta
+name="description"
+content="Guía de Prompts Jurídicos desarrollada por abogados, para abogados, contextualizada al ejercicio profesional en el Perú."
+>
 
-<!-- TIPOGRAFÍAS -->
+
+<!-- =========================================
+     TIPOGRAFÍAS
+========================================= -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet"
+>
+
 
 <style>
 
+
+/* =========================================
+   VARIABLES
+========================================= */
+
 :root {
-    --navy: #082b49;
-    --navy-2: #103e61;
-    --blue: #1677c8;
-    --blue-soft: #eaf5ff;
-    --gold: #c99a32;
-    --text: #102b45;
-    --muted: #64748b;
-    --white: #ffffff;
-    --page: #f7fbff;
-    --border: #dceaf5;
+
+    --azul-oscuro: #082b49;
+
+    --azul-profundo: #0d4268;
+
+    --azul-principal: #1677c8;
+
+    --azul-claro: #eaf5ff;
+
+    --azul-muy-claro: #f5faff;
+
+    --dorado: #c99a32;
+
+    --texto: #102b45;
+
+    --texto-suave: #64748b;
+
+    --blanco: #ffffff;
+
+    --borde: #dceaf5;
+
 }
+
+
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
+
     font-family: "Inter", Arial, sans-serif;
-    background: var(--page);
-    color: var(--text);
+
+    background: var(--azul-muy-claro);
+
+    color: var(--texto);
+
     line-height: 1.5;
+
 }
 
 
-/* =====================================
+/* =========================================
    HERO
-===================================== */
+========================================= */
 
 .hero {
+
     position: relative;
+
     overflow: hidden;
-    min-height: 475px;
+
+    min-height: 405px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
 
     background:
+
         radial-gradient(
-            circle at 8% 15%,
-            rgba(112,190,239,.20) 0 12%,
+            circle at 10% 20%,
+            rgba(85,176,230,.18) 0,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(22,119,200,.10) 0,
             transparent 30%
         ),
-        radial-gradient(
-            circle at 92% 85%,
-            rgba(22,119,200,.10) 0 12%,
-            transparent 30%
-        ),
+
         linear-gradient(
             135deg,
             #ffffff 0%,
-            #f4faff 48%,
+            #f4faff 50%,
             #e7f3fc 100%
         );
 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--borde);
+
 }
 
+
+/* Decoración */
+
 .hero::before {
+
     content: "";
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 480px;
 
-    border: 1px solid rgba(201,154,50,.38);
+    height: 480px;
+
+    border: 1px solid rgba(201,154,50,.28);
 
     border-radius: 50%;
 
     left: -330px;
-    top: -240px;
+
+    top: -250px;
+
 }
 
+
 .hero::after {
+
     content: "";
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 480px;
 
-    border: 1px solid rgba(201,154,50,.30);
+    height: 480px;
+
+    border: 1px solid rgba(201,154,50,.22);
 
     border-radius: 50%;
 
-    right: -340px;
+    right: -330px;
+
     bottom: -300px;
+
 }
+
 
 .hero-content {
+
     position: relative;
+
     z-index: 2;
 
-    max-width: 1000px;
+    max-width: 950px;
 
-    padding: 65px 20px 70px;
+    padding: 50px 20px 55px;
+
 }
 
 
-/* =====================================
-   ETIQUETA SUPERIOR
-===================================== */
+/* =========================================
+   ETIQUETA
+========================================= */
 
 .eyebrow {
 
@@ -134,11 +210,11 @@ body {
 
     align-items: center;
 
-    gap: 16px;
+    gap: 14px;
 
     color: #a77918;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
@@ -146,67 +222,71 @@ body {
 
     text-transform: uppercase;
 
-    margin-bottom: 20px;
+    margin-bottom: 17px;
+
 }
+
 
 .eyebrow::before,
 .eyebrow::after {
 
     content: "";
 
-    width: 34px;
+    width: 32px;
 
     height: 2px;
 
-    background: var(--gold);
+    background: var(--dorado);
+
 }
 
 
-/* =====================================
-   TITULO
-===================================== */
+/* =========================================
+   TITULO PRINCIPAL
+========================================= */
 
 .hero h1 {
 
     font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(42px, 6vw, 70px);
+    font-size: clamp(40px, 6vw, 67px);
 
     line-height: 1.05;
 
-    letter-spacing: -2px;
+    letter-spacing: -1.8px;
 
     color: #071d34;
 
-    margin-bottom: 12px;
+    margin-bottom: 13px;
+
 }
+
 
 .hero h1 span {
-    color: var(--blue);
+
+    color: var(--azul-principal);
+
 }
 
 
-/* =====================================
+/* =========================================
    SUBTITULO
-===================================== */
+========================================= */
 
 .hero-subtitle {
 
     font-family: "Playfair Display", Georgia, serif;
 
-    font-size: clamp(21px, 2.5vw, 30px);
+    font-size: clamp(20px, 2.4vw, 28px);
 
     font-weight: 600;
 
     color: #102f4d;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+
 }
 
-
-/* =====================================
-   DESCRIPCION
-===================================== */
 
 .hero-description {
 
@@ -214,73 +294,40 @@ body {
 
     margin: auto;
 
-    font-size: 17px;
+    font-size: 16px;
 
     color: #526b84;
+
 }
 
 
-/* =====================================
-   BADGE PERU
-===================================== */
-
-.peru-badge {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 24px;
-
-    padding: 11px 23px;
-
-    border: 1px solid #d6e8f6;
-
-    border-radius: 999px;
-
-    background: rgba(255,255,255,.78);
-
-    box-shadow:
-        0 8px 25px rgba(23,119,200,.08);
-
-    color: #244968;
-
-    font-size: 14px;
-
-    font-weight: 500;
-}
-
-.peru-flag {
-    font-size: 18px;
-}
-
-
-/* =====================================
-   CONTENIDO PRINCIPAL
-===================================== */
+/* =========================================
+   ÁREAS JURÍDICAS
+========================================= */
 
 main {
 
-    max-width: 1240px;
+    max-width: 1200px;
 
-    margin: 0 auto;
+    margin: auto;
 
-    padding: 60px 25px 75px;
+    padding: 45px 22px 65px;
+
 }
 
-
-/* =====================================
-   TITULO DE SECCION
-===================================== */
 
 .section-heading {
 
     text-align: center;
 
-    margin-bottom: 34px;
+    margin-bottom: 28px;
+
 }
+
+
+/* =========================================
+   TEXTO ÁREAS JURÍDICAS
+========================================= */
 
 .section-eyebrow {
 
@@ -288,9 +335,9 @@ main {
 
     align-items: center;
 
-    gap: 16px;
+    gap: 14px;
 
-    color: var(--gold);
+    color: var(--dorado);
 
     font-size: 12px;
 
@@ -300,56 +347,49 @@ main {
 
     text-transform: uppercase;
 
-    margin-bottom: 10px;
+    margin-bottom: 7px;
+
 }
+
 
 .section-eyebrow::before,
 .section-eyebrow::after {
 
     content: "";
 
-    width: 35px;
+    width: 30px;
 
     height: 2px;
 
-    background: var(--gold);
+    background: var(--dorado);
+
 }
 
-.section-heading h2 {
-
-    font-family: "Inter", Arial, sans-serif;
-
-    font-size: clamp(25px, 3vw, 34px);
-
-    letter-spacing: 5px;
-
-    text-transform: uppercase;
-
-    color: #0a2038;
-
-    margin-bottom: 7px;
-}
 
 .section-heading p {
 
-    color: #5e7489;
+    color: var(--texto-suave);
 
-    font-size: 16px;
+    font-size: 15px;
+
 }
 
 
-/* =====================================
+/* =========================================
    TARJETAS
-===================================== */
+========================================= */
 
 .categories {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    gap: 20px;
+    gap: 17px;
+
 }
+
 
 .category {
 
@@ -357,71 +397,81 @@ main {
 
     overflow: hidden;
 
-    min-height: 122px;
+    min-height: 116px;
 
     display: flex;
 
     align-items: center;
 
-    gap: 22px;
+    gap: 18px;
 
-    padding: 20px 24px 20px 28px;
+    padding: 18px 20px;
 
-    border: 1px solid var(--border);
-
-    border-radius: 16px;
+    border-radius: 15px;
 
     text-decoration: none;
 
+    background:
+
+        linear-gradient(
+            135deg,
+            #f5fbff,
+            #e6f4ff
+        );
+
+    border: 1px solid #cce4f6;
+
+    box-shadow:
+
+        0 5px 16px
+        rgba(24,86,126,.06);
+
     transition:
+
         transform .25s ease,
+
         box-shadow .25s ease,
-        border-color .25s ease;
+
+        border-color .25s ease,
+
+        background .25s ease;
+
 }
 
-.category::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 130px;
-
-    height: 130px;
-
-    border-radius: 50%;
-
-    right: -45px;
-
-    bottom: -80px;
-
-    background: rgba(255,255,255,.42);
-}
 
 .category:hover {
 
     transform: translateY(-5px);
 
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #e3f3ff
+        );
+
+    border-color: #9dcbea;
+
     box-shadow:
-        0 16px 35px rgba(20,70,110,.12);
+
+        0 14px 28px
+        rgba(24,86,126,.13);
+
 }
 
 
-/* =====================================
+/* =========================================
    ICONOS
-===================================== */
+========================================= */
 
 .category-icon {
 
-    position: relative;
+    flex: 0 0 64px;
 
-    z-index: 2;
+    width: 64px;
 
-    flex: 0 0 78px;
-
-    width: 78px;
-
-    height: 78px;
+    height: 64px;
 
     display: flex;
 
@@ -429,61 +479,62 @@ main {
 
     justify-content: center;
 
-    border-radius: 15px;
+    border-radius: 14px;
 
-    background: rgba(255,255,255,.72);
+    background: #ffffff;
 
-    border: 1px solid rgba(255,255,255,.95);
+    border: 1px solid #d3e8f7;
+
+    color: var(--azul-principal);
 
     box-shadow:
-        0 5px 15px rgba(25,70,100,.07);
 
-    font-size: 36px;
+        0 5px 12px
+        rgba(22,119,200,.08);
+
+    font-size: 29px;
+
 }
 
 
-/* =====================================
-   TEXTO TARJETAS
-===================================== */
+/* =========================================
+   TEXTO DE TARJETAS
+========================================= */
 
 .category-content {
 
-    position: relative;
-
-    z-index: 2;
-
     flex: 1;
+
 }
+
 
 .category h3 {
 
-    font-family: "Playfair Display", Georgia, serif;
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    font-size: 21px;
+    font-size: 20px;
 
     line-height: 1.2;
 
-    color: #102e4b;
+    color: #103b5c;
 
-    max-width: 260px;
 }
 
 
-/* =====================================
+/* =========================================
    FLECHA
-===================================== */
+========================================= */
 
 .arrow {
 
-    position: relative;
+    flex: 0 0 38px;
 
-    z-index: 3;
+    width: 38px;
 
-    flex: 0 0 44px;
-
-    width: 44px;
-
-    height: 44px;
+    height: 38px;
 
     display: flex;
 
@@ -493,184 +544,40 @@ main {
 
     border-radius: 50%;
 
-    background: rgba(255,255,255,.78);
+    background: #ffffff;
 
-    font-size: 23px;
+    color: var(--azul-principal);
 
-    transition: transform .2s ease;
+    font-size: 21px;
+
+    box-shadow:
+
+        0 4px 10px
+        rgba(22,119,200,.07);
+
+    transition:
+
+        transform .2s ease;
+
 }
+
 
 .category:hover .arrow {
 
-    transform: translateX(4px);
+    transform:
+        translateX(4px);
+
 }
 
 
-/* =====================================
-   COLORES POR AREA
-===================================== */
-
-
-/* CIVIL */
-
-.civil {
-
-    background:
-        linear-gradient(
-            135deg,
-            #edf7ff,
-            #dcefff
-        );
-
-    border-color: #c9e3f8;
-}
-
-.civil .category-icon,
-.civil .arrow {
-
-    color: #1677c8;
-}
-
-
-/* LABORAL */
-
-.laboral {
-
-    background:
-        linear-gradient(
-            135deg,
-            #effcf8,
-            #dff5ee
-        );
-
-    border-color: #c9e9df;
-}
-
-.laboral .category-icon,
-.laboral .arrow {
-
-    color: #15906f;
-}
-
-
-/* PENAL */
-
-.penal {
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff4f4,
-            #ffe4e6
-        );
-
-    border-color: #f5d2d5;
-}
-
-.penal .category-icon,
-.penal .arrow {
-
-    color: #d34d5b;
-}
-
-
-/* CONSTITUCIONAL */
-
-.constitucional {
-
-    background:
-        linear-gradient(
-            135deg,
-            #f4f1ff,
-            #e9e4ff
-        );
-
-    border-color: #ddd5fa;
-}
-
-.constitucional .category-icon,
-.constitucional .arrow {
-
-    color: #7259c7;
-}
-
-
-/* ADMINISTRATIVO */
-
-.administrativo {
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff9ec,
-            #fff0d9
-        );
-
-    border-color: #f2dfbd;
-}
-
-.administrativo .category-icon,
-.administrativo .arrow {
-
-    color: #c88716;
-}
-
-
-/* FAMILIA */
-
-.familia {
-
-    background:
-        linear-gradient(
-            135deg,
-            #fff3fa,
-            #fce6f3
-        );
-
-    border-color: #f1d5e5;
-}
-
-.familia .category-icon,
-.familia .arrow {
-
-    color: #cb4d92;
-}
-
-
-/* JURISPRUDENCIA */
-
-.jurisprudencia {
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef7ff,
-            #dcecff
-        );
-
-    border-color: #c9e0f5;
-
-    grid-column: 2;
-}
-
-.jurisprudencia .category-icon,
-.jurisprudencia .arrow {
-
-    color: #1475c5;
-}
-
-
-/* =====================================
+/* =========================================
    FOOTER
-===================================== */
+========================================= */
 
 footer {
 
-    position: relative;
-
-    overflow: hidden;
-
     background:
+
         linear-gradient(
             135deg,
             #071f36,
@@ -679,26 +586,30 @@ footer {
 
     color: #d9e6f1;
 
-    padding: 38px 25px;
+    padding: 32px 22px;
+
 }
+
 
 .footer-container {
 
-    max-width: 1240px;
+    max-width: 1200px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns:
+        1fr auto 1fr;
 
     align-items: center;
 
-    gap: 30px;
+    gap: 28px;
+
 }
 
 
-/* TEXTO IZQUIERDO */
+/* Información */
 
 .footer-info strong {
 
@@ -706,53 +617,62 @@ footer {
 
     color: #ffffff;
 
-    font-size: 14px;
+    font-size: 13px;
 
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 
-    margin-bottom: 9px;
+    margin-bottom: 7px;
+
 }
+
 
 .footer-info span {
 
-    font-size: 13px;
+    font-size: 12px;
 
     color: #b9cddd;
+
 }
 
 
-/* INFORMACION LEGAL */
+/* Información legal */
 
 .footer-legal {
 
     text-align: center;
 
-    padding: 0 35px;
+    padding:
+        0 30px;
 
     border-left:
-        1px solid rgba(255,255,255,.18);
+        1px solid
+        rgba(255,255,255,.17);
 
     border-right:
-        1px solid rgba(255,255,255,.18);
+        1px solid
+        rgba(255,255,255,.17);
 
-    font-size: 13px;
+    font-size: 12px;
 
     line-height: 1.8;
+
 }
+
 
 .footer-legal strong {
 
     color: #ffffff;
+
 }
 
 
-/* LOGO */
+/* Logo */
 
 .footer-logo {
 
     justify-self: end;
 
-    width: 210px;
+    width: 190px;
 
     max-width: 100%;
 
@@ -762,13 +682,14 @@ footer {
         brightness(0)
         invert(1);
 
-    opacity: .96;
+    opacity: .95;
+
 }
 
 
-/* =====================================
+/* =========================================
    RESPONSIVE
-===================================== */
+========================================= */
 
 @media (max-width: 900px) {
 
@@ -776,26 +697,27 @@ footer {
 
         grid-template-columns:
             repeat(2, 1fr);
+
     }
 
-    .jurisprudencia {
-
-        grid-column: auto;
-    }
 
     .footer-container {
 
         grid-template-columns: 1fr;
 
         text-align: center;
+
     }
+
 
     .footer-logo {
 
         justify-self: center;
 
         order: -1;
+
     }
+
 
     .footer-legal {
 
@@ -803,14 +725,19 @@ footer {
 
         border-right: 0;
 
-        padding: 18px 0;
-
         border-top:
-            1px solid rgba(255,255,255,.15);
+            1px solid
+            rgba(255,255,255,.15);
 
         border-bottom:
-            1px solid rgba(255,255,255,.15);
+            1px solid
+            rgba(255,255,255,.15);
+
+        padding:
+            15px 0;
+
     }
+
 }
 
 
@@ -818,125 +745,140 @@ footer {
 
     .hero {
 
-        min-height: auto;
+        min-height: 360px;
+
     }
+
 
     .hero-content {
 
         padding:
-            55px 18px 60px;
+            45px 18px 48px;
+
     }
+
 
     .hero h1 {
 
+        font-size: 39px;
+
         letter-spacing: -1px;
+
     }
+
+
+    .hero-subtitle {
+
+        font-size: 21px;
+
+    }
+
 
     .hero-description {
 
-        font-size: 15px;
+        font-size: 14px;
+
     }
+
 
     main {
 
         padding:
-            48px 16px 55px;
+            38px 16px 50px;
+
     }
 
-    .section-heading h2 {
-
-        letter-spacing: 2px;
-
-        font-size: 23px;
-    }
 
     .categories {
 
         grid-template-columns: 1fr;
+
     }
+
 
     .category {
 
-        min-height: 112px;
+        min-height: 105px;
 
-        padding: 17px;
+        padding: 16px;
 
-        gap: 15px;
     }
+
 
     .category-icon {
 
-        flex-basis: 62px;
+        flex-basis: 58px;
 
-        width: 62px;
+        width: 58px;
 
-        height: 62px;
+        height: 58px;
 
-        font-size: 29px;
+        font-size: 27px;
+
     }
+
 
     .category h3 {
 
         font-size: 18px;
+
     }
 
-    .arrow {
-
-        flex-basis: 38px;
-
-        width: 38px;
-
-        height: 38px;
-    }
 
     .footer-logo {
 
-        width: 180px;
+        width: 170px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =====================================
+<!-- =========================================
      HERO
-===================================== -->
+========================================= -->
 
 <section class="hero">
 
     <div class="hero-content">
 
+
         <div class="eyebrow">
-            Productos Digitales
+
+            PRODUCTOS DIGITALES
+
         </div>
+
 
         <h1>
-            Guía de Prompts <span>Jurídicos</span>
+
+            Guía de Prompts
+            <span>Jurídicos</span>
+
         </h1>
 
+
         <div class="hero-subtitle">
+
             Desarrollada por abogados, para abogados.
+
         </div>
+
 
         <p class="hero-description">
+
             Prompts jurídicos estructurados y contextualizados
             al ejercicio profesional en el Perú.
+
         </p>
 
-        <div class="peru-badge">
-
-            <span class="peru-flag">
-                🇵🇪
-            </span>
-
-            Diseñado para el ejercicio jurídico en el Perú
-
-        </div>
 
     </div>
 
@@ -944,200 +886,303 @@ footer {
 
 
 
-<!-- =====================================
-     GUIA DE ACTUACION
-===================================== -->
+<!-- =========================================
+     ÁREAS JURÍDICAS
+========================================= -->
 
 <main>
 
+
     <div class="section-heading">
 
+
         <div class="section-eyebrow">
-            Áreas jurídicas
+
+            ÁREAS JURÍDICAS
+
         </div>
 
-        <h2>
-            Guía de Actuación Jurídica
-        </h2>
 
         <p>
-            Selecciona el área jurídica y la actuación que deseas desarrollar
+
+            Selecciona el área jurídica y la actuación
+            que deseas desarrollar
+
         </p>
 
+
     </div>
+
 
 
     <div class="categories">
 
 
-        <!-- CIVIL -->
+        <!-- =================================
+             CIVIL
+        ================================== -->
 
-        <a href="#" class="category civil">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
+
                 ⚖
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal Civil
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- LABORAL -->
+        <!-- =================================
+             LABORAL
+        ================================== -->
 
-        <a href="#" class="category laboral">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ▣
+
+                ⚙
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal Laboral
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- PENAL -->
+        <!-- =================================
+             PENAL
+        ================================== -->
 
-        <a href="#" class="category penal">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ⚒
+
+                ⚔
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal Penal
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- CONSTITUCIONAL -->
+        <!-- =================================
+             CONSTITUCIONAL
+        ================================== -->
 
-        <a href="#" class="category constitucional">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ♜
+
+                🏛
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal Constitucional
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- ADMINISTRATIVO -->
+        <!-- =================================
+             ADMINISTRATIVO
+        ================================== -->
 
-        <a href="#" class="category administrativo">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ▤
+
+                📋
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal Administrativa
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- FAMILIA -->
+        <!-- =================================
+             FAMILIA
+        ================================== -->
 
-        <a href="#" class="category familia">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ♧
+
+                👨‍👩‍👧
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
-                    Actuación<br>
+
+                    Actuación
+                    <br>
                     Procesal de Familia
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
 
 
 
-        <!-- JURISPRUDENCIA -->
+        <!-- =================================
+             JURISPRUDENCIA
+        ================================== -->
 
-        <a href="#" class="category jurisprudencia">
+        <a
+            href="#"
+            class="category"
+        >
 
             <div class="category-icon">
-                ▤
+
+                📚
+
             </div>
+
 
             <div class="category-content">
 
                 <h3>
+
                     Jurisprudencia
+
                 </h3>
 
             </div>
 
+
             <div class="arrow">
+
                 →
+
             </div>
 
         </a>
@@ -1145,28 +1190,38 @@ footer {
 
     </div>
 
+
 </main>
 
 
 
-<!-- =====================================
+<!-- =========================================
      FOOTER
-===================================== -->
+========================================= -->
 
 <footer>
+
 
     <div class="footer-container">
 
 
         <div class="footer-info">
 
+
             <strong>
+
                 OREMA | PRODUCTOS DIGITALES
+
             </strong>
 
+
             <span>
-                Herramientas jurídicas para el ejercicio profesional
+
+                Herramientas jurídicas
+                para el ejercicio profesional
+
             </span>
+
 
         </div>
 
@@ -1174,16 +1229,25 @@ footer {
 
         <div class="footer-legal">
 
+
             Derechos reservados;
+
             <strong>
+
                 Grupo Empresarial OREMA SRL
+
             </strong>
+
 
             <br>
 
+
             <strong>
+
                 RUC 20614112582
+
             </strong>
+
 
         </div>
 
@@ -1198,8 +1262,10 @@ footer {
 
     </div>
 
+
 </footer>
 
 
 </body>
+
 </html>
