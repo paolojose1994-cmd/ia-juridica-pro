@@ -1760,6 +1760,10 @@ function setAuthMessage(message, isError = true) {
   if (node) { node.textContent = message || ''; node.style.color = isError ? '#b42318' : '#16764a'; }
 }
 function lockLibrary(message = '') {
+  if (OREMA_REVALIDATION_TIMER !== null) {
+    window.clearInterval(OREMA_REVALIDATION_TIMER);
+    OREMA_REVALIDATION_TIMER = null;
+  }
   OREMA_LIBRARY = [];
   OREMA_ACCESS_TOKEN = null;
   OREMA_AUTH_USER = null;
@@ -1794,22 +1798,41 @@ function validateLibraryPayload(payload) {
   return payload;
 }
 async function requestLibrary(accessToken) {
+  if (typeof accessToken !== 'string' || !accessToken.trim()) {
+    throw new Error('La sesión no contiene un token válido. Inicia sesión nuevamente.');
+  }
+
   const response = await fetch(OREMA_LIBRARY_RPC, {
     method: 'POST',
     headers: {
       'apikey': OREMA_SUPABASE_ANON_KEY,
       'Authorization': `Bearer ${accessToken}`,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: '{}',
     cache: 'no-store'
   });
+
   if (!response.ok) {
     let detail = '';
-    try { const body = await response.json(); detail = body.message || body.error || ''; } catch (_) {}
-    if (response.status === 401 || response.status === 403) throw new Error('No se pudo validar una suscripción vigente. Inicia sesión nuevamente o contacta a OREMA.');
+    try {
+      const body = await response.json();
+      detail = String(body.message || body.error_description || body.error || '');
+    } catch (_) {}
+
+    // La RPC vuelve a comprobar la suscripción en el servidor en cada solicitud.
+    // No se confía únicamente en que el token de autenticación siga siendo válido.
+    if (
+      response.status === 401 ||
+      response.status === 403 ||
+      /suscripci[oó]n|vencid|autenticaci[oó]n requerida|no activa/i.test(detail)
+    ) {
+      throw new Error('Tu sesión o suscripción ya no permite acceder a la biblioteca. Inicia sesión nuevamente o contacta a OREMA.');
+    }
     throw new Error(detail || `No se pudo cargar la biblioteca (HTTP ${response.status}).`);
   }
+
   return validateLibraryPayload(await response.json());
 }
 async function activateSession(session, persist = true) {
@@ -1849,6 +1872,7 @@ async function handleLogin(event) {
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(result.error || result.message || 'Código o contraseña incorrectos.');
     await activateSession(result, true);
+    startSessionRevalidation();
     passwordField.value = '';
   } catch (error) {
     lockLibrary(error.message || 'No se pudo iniciar sesión. Verifica tus datos e inténtalo de nuevo.');
@@ -1856,12 +1880,51 @@ async function handleLogin(event) {
     submit.disabled = false; submit.textContent = 'Ingresar a la biblioteca';
   }
 }
+let OREMA_REVALIDATION_IN_PROGRESS = false;
+let OREMA_REVALIDATION_TIMER = null;
+
+async function revalidateCurrentSession() {
+  // Evita solicitudes duplicadas cuando coinciden focus, pageshow y visibilitychange.
+  if (OREMA_REVALIDATION_IN_PROGRESS) return;
+  if (document.body.classList.contains('is-locked')) return;
+  if (!OREMA_ACCESS_TOKEN) {
+    lockLibrary('La sesión ya no está activa. Inicia sesión nuevamente.');
+    return;
+  }
+
+  OREMA_REVALIDATION_IN_PROGRESS = true;
+  try {
+    // Esta llamada consulta de nuevo la RPC protegida; la decisión de vigencia
+    // se toma en Supabase usando auth.uid(), starts_at, expires_at y status.
+    const payload = await requestLibrary(OREMA_ACCESS_TOKEN);
+    OREMA_LIBRARY = payload;
+  } catch (_) {
+    lockLibrary('Tu sesión o suscripción ya no está vigente. Inicia sesión nuevamente.');
+  } finally {
+    OREMA_REVALIDATION_IN_PROGRESS = false;
+  }
+}
+
+function startSessionRevalidation() {
+  if (OREMA_REVALIDATION_TIMER !== null) {
+    window.clearInterval(OREMA_REVALIDATION_TIMER);
+  }
+  // Comprobación periódica mientras la biblioteca está abierta.
+  OREMA_REVALIDATION_TIMER = window.setInterval(() => {
+    if (!document.hidden) revalidateCurrentSession();
+  }, 60000);
+}
+
 async function restoreSession() {
   try {
     const saved = sessionStorage.getItem(OREMA_SESSION_KEY);
-    if (!saved) return;
+    if (!saved) {
+      lockLibrary();
+      return;
+    }
     const session = JSON.parse(saved);
     await activateSession(session, true);
+    startSessionRevalidation();
   } catch (_) {
     lockLibrary('La sesión ya no es válida o la suscripción no está vigente. Inicia sesión nuevamente.');
   }
@@ -2000,6 +2063,24 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('orema-login-form').addEventListener('submit', handleLogin);
   document.getElementById('orema-logout').addEventListener('click', logoutOrema);
   restoreSession();
+
+  // Al volver con Atrás/Adelante o regresar a una pestaña, no se da por válida
+  // la vista que el navegador haya conservado en memoria: se comprueba la RPC.
+  window.addEventListener('pageshow', function() {
+    const saved = sessionStorage.getItem(OREMA_SESSION_KEY);
+    if (!saved) {
+      lockLibrary();
+    } else if (!document.hidden) {
+      revalidateCurrentSession();
+    }
+  });
+  window.addEventListener('focus', function() {
+    if (!document.hidden) revalidateCurrentSession();
+  });
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) revalidateCurrentSession();
+  });
+
   const root = document.getElementById('view-dynamic');
   root.addEventListener('click', function(event) {
     const button = event.target.closest('[data-action]'); if (!button) return;
